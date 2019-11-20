@@ -1,0 +1,22 @@
+{
+  "name": "huilinstudio",
+  "version": "1.0.0",
+  "description": "Webpage Application for Huilin Photograph Studio MEAN Stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "bcrypt": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemon": "^1.19.4",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Shawn Ren",
+  "license": "ISC"
+}
