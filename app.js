@@ -11,7 +11,8 @@ const user = require('./routes/api/users');
 const db = config.database
 
 mongoose.connect(db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err))

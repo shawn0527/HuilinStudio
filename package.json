@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "server": "nodemon app"
   },
   "dependencies": {
-    "bcrypt": "*",
+    "bcryptjs": "*",
     "cors": "*",
     "express": "*",
     "jsonwebtoken": "*",
