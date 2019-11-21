@@ -32,11 +32,17 @@ module.exports.getUserByEmail = function(email, callback) {
 
 module.exports.addUser = function(newUser, callback) {
     bcrypt.genSalt(10, (err, salt) => {
-        if(err) throw err;
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             if(err) throw err;
             newUser.password = hash;
             newUser.save(callback);
         })
     })
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+        if(err) throw err;
+        callback(null, isMatch);
+    });
 }

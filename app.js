@@ -12,7 +12,8 @@ const db = config.database
 
 mongoose.connect(db, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err))
@@ -33,6 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Bodyparser Middleware
 app.use(express.json());
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 // Input Routes
 app.use('/users', user);
