@@ -38,7 +38,6 @@ router.post('/authenticate', (req, res, next) => {
                 const token = jwt.sign({user}, config.secret, {
                     expiresIn: 60000 // 10 minutes
                 });
-                console.log(token)
 
                 res.json({
                     success: true,
@@ -57,8 +56,8 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 // Profile
-router.get('/profile', (req, res, next) => {
-    res.send('PROFILE')
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    res.json({user: req.user})
 });
 
 module.exports = router
